@@ -34,51 +34,22 @@ public class WriteJson {
 
     public static void BadmitionGameType() {
         int count = 0;
-        /*JSONObject obj = new JSONObject();
+        JSONObject object = new JSONObject();
         JSONArray playerDetails = new JSONArray();
         JSONArray teams = new JSONArray();
 
         for (int j = 0; j <= gameType.length(); j++) {
-            obj.put("id", j);
-            obj.put("name", "Team -" + j);
-            obj.put("gameType", gameType);
+            object.put("id", j);
+            object.put("name", "Team -" + j);
+            object.put("gameType", gameType);
 
             for (int i = 0; i < (gamePojos.size() / 2); i++) {
                 playerDetails.add("playerId : " + gamePojos.get(count).players.getPlayerId());
                 playerDetails.add("name : " + gamePojos.get(count).players.getName());
                 count++;
-                obj.put("players" + i, playerDetails);
+                object.put("players" + i, playerDetails);
             }
-        }*/
-
-        JSONObject object = new JSONObject();
-        object.put("total", gameType);
-        JSONArray array = new JSONArray();
-
-        JSONObject arrayElementOne = new JSONObject();
-        arrayElementOne.put("setId", 1);
-
-        JSONArray arrayElementOneArray = new JSONArray();
-
-        JSONObject arrayElementOneArrayElementOne = new JSONObject();
-        arrayElementOneArrayElementOne.put("name", "ABC");
-        arrayElementOneArrayElementOne.put("type", "STRING");
-
-        JSONObject arrayElementTwo = new JSONObject();
-        arrayElementTwo.put("setId", 2);
-
-        JSONObject arrayElementOneArrayElementTwo = new JSONObject();
-        arrayElementOneArrayElementTwo.put("name", "XYZ");
-        arrayElementOneArrayElementTwo.put("type", "STRING");
-
-        arrayElementOneArray.add(arrayElementOneArrayElementOne);
-        arrayElementOneArray.add(arrayElementOneArrayElementTwo);
-
-        arrayElementOne.put("setDef", arrayElementOneArray);
-        array.add(arrayElementOne);
-        object.put("def", array);
-
-
+        }
         try (
                 FileWriter file = new FileWriter("D:\\LearnAndCodeProject\\src\\main\\java\\OutputJson\\Output.json")) {
             file.write(object.toJSONString());
